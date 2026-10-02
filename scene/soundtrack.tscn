@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bxw75eyi67ogb"]
+
+[ext_resource type="AudioStream" uid="uid://doq7cxqh3mls4" path="res://asset/8Bit Title Screen.mp3" id="1_nr1y7"]
+
+[node name="Soundtrack" type="AudioStreamPlayer" unique_id=636201243]
+process_mode = 3
+stream = ExtResource("1_nr1y7")
+volume_db = 9.72
+autoplay = true
+parameters/looping = true

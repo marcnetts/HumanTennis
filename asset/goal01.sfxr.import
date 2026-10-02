@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://dfl6m53piw48r"
+path="res://.godot/imported/goal01.sfxr-b9eb4f5a9530a238556ca662de7e5b1d.sample"
+
+[deps]
+
+source_file="res://asset/goal01.sfxr"
+dest_files=["res://.godot/imported/goal01.sfxr-b9eb4f5a9530a238556ca662de7e5b1d.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0

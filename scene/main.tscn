@@ -1,0 +1,146 @@
+[gd_scene format=3 uid="uid://cpicdsaamq60h"]
+
+[ext_resource type="Script" uid="uid://deaewox75rpi5" path="res://script/main.gd" id="1_brvut"]
+[ext_resource type="Script" uid="uid://2kfap4g6dcy2" path="res://script/player.gd" id="1_itxqv"]
+[ext_resource type="Texture2D" uid="uid://bhd0cgronqnnp" path="res://asset/background.png" id="2_b5f6u"]
+[ext_resource type="Script" uid="uid://dr6h254sdwyjc" path="res://script/ball.gd" id="2_v0l8b"]
+[ext_resource type="Script" uid="uid://wu7yam0xefed" path="res://script/bot.gd" id="2_wp4xf"]
+[ext_resource type="Texture2D" uid="uid://c6ohotynex6jt" path="res://asset/raquete.png" id="4_k65ib"]
+[ext_resource type="AudioStream" uid="uid://barrmmehthc3l" path="res://asset/hit_wall.sfxr" id="5_p1hux"]
+[ext_resource type="AudioStream" uid="uid://csf8wjpljsweh" path="res://asset/goal_win.sfxr" id="6_of57s"]
+[ext_resource type="AudioStream" uid="uid://cs5072bdp86do" path="res://asset/goal_lose.sfxr" id="7_b5f6u"]
+[ext_resource type="Texture2D" uid="uid://dtiscenb2m5v8" path="res://asset/bola_tenis2.png" id="8_wscrc"]
+[ext_resource type="Theme" uid="uid://c3o4ktsuo0usp" path="res://resource/pong_theme.tres" id="11_k65ib"]
+[ext_resource type="PackedScene" uid="uid://bpik4lfr1nimb" path="res://scene/game_over.tscn" id="12_wscrc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ncxsj"]
+size = Vector2(32, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pugtr"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_brvut"]
+random_pitch = 1.122462
+random_volume_offset_db = 1.0
+streams_count = 1
+stream_0/stream = ExtResource("5_p1hux")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6pgm8"]
+size = Vector2(697, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k65ib"]
+size = Vector2(695.5, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0yc80"]
+size = Vector2(29, 420)
+
+[node name="Main" type="Node2D" unique_id=361498602]
+script = ExtResource("1_brvut")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1994075954]
+texture = ExtResource("2_b5f6u")
+centered = false
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=771353316]
+position = Vector2(43, 179)
+collision_layer = 2
+collision_mask = 15
+motion_mode = 1
+script = ExtResource("1_itxqv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1697800316]
+shape = SubResource("RectangleShape2D_ncxsj")
+
+[node name="Racket" type="Sprite2D" parent="Player" unique_id=1167484751]
+rotation = -1.5707964
+texture = ExtResource("4_k65ib")
+
+[node name="Bot" type="CharacterBody2D" parent="." unique_id=1933370930]
+position = Vector2(610, 179)
+collision_layer = 2
+collision_mask = 15
+motion_mode = 1
+script = ExtResource("2_wp4xf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bot" unique_id=1724042658]
+shape = SubResource("RectangleShape2D_ncxsj")
+
+[node name="Racket" type="Sprite2D" parent="Bot" unique_id=1577867616]
+rotation = -1.5707964
+texture = ExtResource("4_k65ib")
+flip_v = true
+
+[node name="Ball" type="CharacterBody2D" parent="." unique_id=1717873373]
+position = Vector2(309, 193)
+collision_layer = 8
+collision_mask = 15
+script = ExtResource("2_v0l8b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=925318260]
+shape = SubResource("RectangleShape2D_pugtr")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="Ball" unique_id=959357808]
+stream = SubResource("AudioStreamRandomizer_brvut")
+
+[node name="BallSprite" type="Sprite2D" parent="Ball" unique_id=188824874]
+texture = ExtResource("8_wscrc")
+
+[node name="Wall" type="StaticBody2D" parent="." unique_id=478978110]
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" unique_id=1952752007]
+position = Vector2(318.5, -19)
+shape = SubResource("RectangleShape2D_6pgm8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall" unique_id=55513956]
+position = Vector2(320.75, 384)
+shape = SubResource("RectangleShape2D_k65ib")
+
+[node name="GoalLeft" type="Area2D" parent="." unique_id=1932455694]
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalLeft" unique_id=506058578]
+position = Vector2(-13, 200)
+shape = SubResource("RectangleShape2D_0yc80")
+
+[node name="GoalRight" type="Area2D" parent="." unique_id=111056475]
+position = Vector2(1252, 0)
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalRight" unique_id=1987466341]
+position = Vector2(-597.5, 193)
+shape = SubResource("RectangleShape2D_0yc80")
+
+[node name="GoalPlayerSound" type="AudioStreamPlayer2D" parent="." unique_id=523856749]
+position = Vector2(575, 180)
+stream = ExtResource("6_of57s")
+
+[node name="GoalBotSound" type="AudioStreamPlayer2D" parent="." unique_id=2098838863]
+position = Vector2(77, 172)
+stream = ExtResource("7_b5f6u")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=447393905]
+
+[node name="ScoreLabel" type="RichTextLabel" parent="HUD" unique_id=27947413]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+offset_transform_enabled = true
+theme = ExtResource("11_k65ib")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "BUG"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="GameOver" parent="HUD" unique_id=962280853 instance=ExtResource("12_wscrc")]
+unique_name_in_owner = true
+
+[connection signal="ball_resetted" from="." to="Ball" method="_on_ball_resetted"]
+[connection signal="body_entered" from="GoalLeft" to="." method="_on_goal_left_body_entered"]
+[connection signal="body_entered" from="GoalRight" to="." method="_on_goal_right_body_entered"]

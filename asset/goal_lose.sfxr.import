@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://cs5072bdp86do"
+path="res://.godot/imported/goal_lose.sfxr-7b356eb4b596ba0cddce4fb841c61cca.sample"
+
+[deps]
+
+source_file="res://asset/goal_lose.sfxr"
+dest_files=["res://.godot/imported/goal_lose.sfxr-7b356eb4b596ba0cddce4fb841c61cca.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0

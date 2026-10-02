@@ -1,0 +1,55 @@
+[gd_resource type="Theme" format=3 uid="uid://c3o4ktsuo0usp"]
+
+[ext_resource type="FontFile" uid="uid://diyp87p0ekod3" path="res://asset/Audiowide-Regular.ttf" id="1_drgik"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_drgik"]
+bg_color = Color(0.9540227, 0.3598292, 0.5510512, 1)
+skew = Vector2(0.165, 0.1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0.78775924, 0.78775924, 0.78775924, 1)
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3er1b"]
+bg_color = Color(0.9540227, 0.3598292, 0.5510512, 1)
+skew = Vector2(0.165, 0.1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0.78775924, 0.78775924, 0.78775924, 1)
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14wem"]
+bg_color = Color(0.79700935, 0.36954254, 1, 1)
+skew = Vector2(0.165, 0.1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hxu56"]
+bg_color = Color(0.5510248, 0.6342874, 0.9788249, 1)
+skew = Vector2(0.165, 0.1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_offset = Vector2(0, 3)
+
+[resource]
+Button/fonts/font = ExtResource("1_drgik")
+Button/styles/focus = SubResource("StyleBoxFlat_drgik")
+Button/styles/hover = SubResource("StyleBoxFlat_3er1b")
+Button/styles/normal = SubResource("StyleBoxFlat_14wem")
+Button/styles/pressed = SubResource("StyleBoxFlat_hxu56")
+RichTextLabel/fonts/normal_font = ExtResource("1_drgik")
